@@ -8,7 +8,8 @@ public:
         if(dp[i][s+off]!=-1)return dp[i][s+off];
         return dp[i][s+off]=min(solve(nums,dp,s+nums[i],i+1,off),solve(nums,dp,s-nums[i],i+1,off));
     }
-    int lastStoneWeightII(vector<int>& stones) {
+    int lastStoneWeightII(vector<int>& stones){
+        ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
         int s = accumulate(stones.begin(),stones.end(),0);
         vector<vector<int>>dp(stones.size(),vector<int>(2*s+1,-1));
         return solve(stones,dp,0,0,s);
