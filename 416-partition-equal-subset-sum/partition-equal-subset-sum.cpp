@@ -8,6 +8,7 @@ public:
         return dp[idx][sum]=op1||op2;
     }
     bool canPartition(vector<int>& nums) {
+        ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
         int s = accumulate(nums.begin(), nums.end(), 0);
         if(s%2)return 0;
         s/=2;
