@@ -5,9 +5,7 @@ public:
         else if(sum==target)return 1;
         else if(sum>target)return 0;
         else if(dp[idx][sum] != -1)return dp[idx][sum];
-        int op1 = targetSum(nums,dp,target,idx+1,sum);
-        int op2 = targetSum(nums,dp,target,idx+1,sum+nums[idx]);
-        return dp[idx][sum]=op1||op2;
+        else return dp[idx][sum] = targetSum(nums,dp,target,idx+1,sum) | targetSum(nums,dp,target,idx+1,sum+nums[idx]);
     }
     bool canPartition(vector<int>& nums) {
         ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
