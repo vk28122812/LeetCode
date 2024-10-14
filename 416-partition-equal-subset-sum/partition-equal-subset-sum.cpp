@@ -2,7 +2,9 @@ class Solution {
 public:
     bool targetSum(vector<int>&nums,vector<vector<int>>&dp,int target,int idx,int sum){
         if(idx==nums.size())return sum==target;
-        if(dp[idx][sum] != -1)return dp[idx][sum];
+        else if(sum==target)return 1;
+        else if(sum>target)return 0;
+        else if(dp[idx][sum] != -1)return dp[idx][sum];
         int op1 = targetSum(nums,dp,target,idx+1,sum);
         int op2 = targetSum(nums,dp,target,idx+1,sum+nums[idx]);
         return dp[idx][sum]=op1||op2;
