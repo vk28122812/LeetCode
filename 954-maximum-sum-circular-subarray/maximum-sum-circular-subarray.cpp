@@ -1,17 +1,18 @@
 class Solution {
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
-        int globalMax=nums[0], globalMin=nums[0];
-        int currMax=0, currMin = 0;
+        ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+        int gmx=nums[0], gmn=nums[0];
+        int cmg=0, cmn = 0;
         int total = 0;
         for(int i:nums){
-            currMax = max(i,currMax+i);
-            currMin = min(i, currMin+i);
-            globalMax = max(globalMax, currMax);
-            globalMin = min(globalMin, currMin);
+            cmg = max(i,cmg+i);
+            cmn = min(i, cmn+i);
+            gmx = max(gmx, cmg);
+            gmn = min(gmn, cmn);
             total += i;
         }
-        if(globalMax < 0)return globalMax;
-        return max(globalMax, total - globalMin);
+        if(gmx < 0)return gmx;
+        return max(gmx, total - gmn);
     }
 };
